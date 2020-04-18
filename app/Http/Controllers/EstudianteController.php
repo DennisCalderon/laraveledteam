@@ -7,6 +7,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+#Forma extensa de integrar los modelos
+/* #use App\Entities\NombreModelo;
+ use App\Entities\Estudiante;
+ use App\Entities\Tarea;
+ use App\Entities\Usuario;
+*/
+
+#Forma simplificada de integrar los Modelos en una sola línea
+use App\Entities\{Estudiante, Tarea, Usuario};
+
+
 class EstudianteController extends Controller
 {
     /**
