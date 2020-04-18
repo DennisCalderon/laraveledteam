@@ -27,7 +27,15 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        //
+        // Seleccionar todo en nuestra Tabla
+        // select * from tabla-estudiantes
+
+        #Estudiante:operacion(); ==> Consultar, Eliminar, editar, insertar
+        #Estudiante::all();                         == select * from estudiantes                        // son equivalentes
+        #Estudiante::where('id_estado', 1)->get();  == select * from estudiantes where id_estado = 1;   // son equivalentes
+
+        // Si no tuvieramos las tablas en objetos usariamos
+        #DB::table('estudiantes')->where('id_estado', 1)->get();
     }
 
     /**
