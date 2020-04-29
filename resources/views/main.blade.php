@@ -8,5 +8,6 @@
 <body>
     <h1> Hola a todos </h1>
     <h4> Laravel desde cero </h4>    
+    <h4> las particiones se pueden trabajar en distintas carpetas</h4>    
 </body>
 </html>
