@@ -9,5 +9,10 @@ use Illuminate\Http\Request;
 
 class TareasController extends Controller
 {
-    //
+    public function buscar() {
+        echo "Buscar en Tareas Controller";
+    }
+    public function ver($id, $limitar = null) {
+        echo "Id de la tarea".$id;
+    }
 }

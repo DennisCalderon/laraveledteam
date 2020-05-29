@@ -89,9 +89,8 @@
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{route('tareas.buscar')}}">Buscar</a>
+                    <a href="/tareas/buscar">Buscar2</a>
                 </div>
             </div>
         </div>
