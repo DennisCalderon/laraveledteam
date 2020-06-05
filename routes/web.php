@@ -33,3 +33,12 @@ Route::get('/tareas/{id}/ver/{limitar?}', 'TareasController@ver')->name('tareas.
 Route::get('/info', function () {
     return view('welcome');
 });
+
+#laraveledteam.test/admin/*     // se agrega un grupo que puede contener varias rutas qué pasaran previamente por un middleware
+                                                //parámetro usado en el KERNEL
+Route::group(['prefix' => 'admin', 'middleware' => 'is_admin', 'as' => 'admin.'], function() {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+});
+
+# si no se desea crear un grupo se puede usar el middleware en una ruta individual
+//Route::get('/dashboard', 'DashboardController@create')->middleware('is_admin');
