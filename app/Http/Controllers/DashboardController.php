@@ -13,7 +13,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $data = ['mensaje' => 'Hola a todos', 'html' => '<h1>Lalal</h1>', 'valor1' => '', 'valor2' => 1];
+        #return view('dashboard', ['mensaje' => 'Hola a todos', 'html' => '<h1>Lalal</h1>']); // se pueden enviar valores de estas formas
+        return view('dashboard', $data);
     }
 
     /**

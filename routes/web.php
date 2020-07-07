@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['mensaje' => 'Hola a todos', 'html' => '<h1>Lalal</h1>']);
 });
 
 #Crear una ruta
