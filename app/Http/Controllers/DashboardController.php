@@ -13,7 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        echo "Estoy en el dashborad";
+        return view('dashboard');
     }
 
     /**
