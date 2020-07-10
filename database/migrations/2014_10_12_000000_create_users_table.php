@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->rememberToken();    // crea un token de autentificación para le usuario
+            $table->timestamps();   // crea en la base de datos los atributos created_at, updated_at -- son fechas
         });
     }
 
