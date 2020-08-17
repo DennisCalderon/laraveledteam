@@ -47,3 +47,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin', 'as' => 'admin.']
 
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+
+route::resource('tareas', 'TareasController');

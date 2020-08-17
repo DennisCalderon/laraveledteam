@@ -9,5 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
-    //
+    protected $table = 'users';
+
+    public function tareas() {
+        //muchas tareas - Uno a Varios
+        return $this->hasMany(Tarea::class);
+    }
 }
