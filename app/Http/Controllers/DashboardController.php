@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Entities\{Test, Usuario}; // llamando a las tablas
+use DB; //usamos esto para trabajar directamente con la tabla sin usar Eloquent
 
 class DashboardController extends Controller
 {
@@ -13,9 +15,46 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $data = ['mensaje' => 'Hola a todos', 'html' => '<h1>Lalal</h1>', 'valor1' => '', 'valor2' => 1];
-        #return view('dashboard', ['mensaje' => 'Hola a todos', 'html' => '<h1>Lalal</h1>']); // se pueden enviar valores de estas formas
-        return view('dashboard', $data);
+        // todo
+        $todos = Test::all(); //Todos los registros de está tabla, ej: 50 registros
+
+        // mostrar datos para prueba
+        #var_dump($todos); 
+        /*foreach ($todos as $t) {
+            echo $t->nombre. " ".$t->numero." <br/>";
+        }*/
+
+        //where
+        $where = Test::where('numero', '>', 5)->get(); # select * from test where numero > 5;
+        $where2 = Test::where('numero', '<', 5)
+                        ->where('aleatorio', '<', 10)
+                        ->get(); # select * from test where numero < 5 and aleatorio < 50;
+        // Por Id
+        $porID = Test::find(1);
+        #$porUseridUsuario = Usuario::find(1);
+
+        //count 
+        $count = Test::count(); #select count(*) from usuarios;
+
+        // máximo
+        $max = Test::max('aleatorio');
+
+        // consultas
+        $like = Test::where('nombre', 'like', 'A%')->limit(10)->get();
+        $between = Test::whereBetween('numero', [5, 15])->limit(10)->get();
+
+        ### para motras la información podemos usar un arreglo o usar una nueva función llamada compact
+
+        # usando compact
+        return view('dashboard')->with(compact('like', 'where'));
+                                            // definimos las variables que queremos usar
+
+        #usando el arreglo
+        /*$data = [
+            'where' => $where,
+            'like' => $like
+        ];
+        return view('dashboard', $data);*/
     }
 
     /**
