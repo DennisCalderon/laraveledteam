@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+// comando para crear el sedd: php artisan make:seed FakerSeederTable
 class PrioridadesTableSeeder extends Seeder
 {
     /**
