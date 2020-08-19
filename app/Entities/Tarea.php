@@ -15,4 +15,9 @@ class Tarea extends Model
     public function usuario() {
         return $this->belongsTo(Usuario::class);
     }
+
+    public function prioridad() {
+        // relacionada a través de :   prioridad_id - id (prioridad)
+        return $this->belongsTo(Prioridad::class); // es equivalente aun leftjoin
+    }
 }

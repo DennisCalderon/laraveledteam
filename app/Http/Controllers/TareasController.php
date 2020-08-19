@@ -21,10 +21,13 @@ class TareasController extends Controller
         var_dump($tareas);*/
 
         //$tareas = Tarea::where('usuario_id', 1)->get();
-        #$tareasPrioridad = $this->tareas->porPrioridad(1,3);
-        $tareas = $this->tareas->porUsuario(1);
-        foreach ($tareas as $tarea) {
-            echo $tarea->titulo."<br />";
+        $tareasPrioridad = $this->tareas->porPrioridad(1,3);
+        #$tareas = $this->tareas->porUsuario(1);
+        foreach ($tareasPrioridad as $tarea) {
+            //echo $tarea->titulo." ".$tarea->prioridad."<br />";
+            echo $tarea->titulo;
+            echo $tarea->prioridad['id'];
+            echo $tarea->prioridad['prioridad'];
         }
         
         
