@@ -23,7 +23,7 @@ Route::resource('estudiantes', 'EstudianteController');
 
 /*
 #ruta simple
-Route::get('/tareas/buscar', 'TareasController@buscar')->name('tareas.buscar'); //el "name" es para crear un nombre del controlador
+//Route::get('/tareas/buscar', 'TareasController@buscar')->name('tareas.buscar'); //el "name" es para crear un nombre del controlador
 
 #ruta con parámetro
 Route::get('/tareas/{id}/ver', 'TareasController@ver')->name('tareas.ver');

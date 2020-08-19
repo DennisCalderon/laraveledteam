@@ -89,7 +89,7 @@
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
-                    <a href="{{route('tareas.buscar')}}">Buscar</a>
+                    {{-- <a href="{{route('tareas.buscar')}}">Buscar</a> --}}
                     <a href="/tareas/buscar">Buscar2</a>
                 </div>
             </div>

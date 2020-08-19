@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // creado con el comando php artisan make::controller TareasController --resource
 // el anterior se renombro para trabajar en limpio
 
+use App\Entities\{Tarea, Prioridad}; // llamando a los modelos de las bases de datos que vamos a utilizar.
+
 class TareasController extends Controller
 {
     /**
@@ -16,7 +18,8 @@ class TareasController extends Controller
      */
     public function index()
     {
-        //
+        $tareas = Tarea::all();
+        return view('tareas.index')->with(compact('tareas')); // la data tamien la podemos enviar con un arreglo -> $data['']
     }
 
     /**
@@ -26,7 +29,8 @@ class TareasController extends Controller
      */
     public function create()
     {
-        //
+        $prioridades = Prioridad::all();
+        return view('tareas.crear')->with(compact('prioridades')); 
     }
 
     /**
