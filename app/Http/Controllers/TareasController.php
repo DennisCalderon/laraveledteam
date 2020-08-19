@@ -1,41 +1,87 @@
 <?php
 
-#php artisan make:controller TareasController   
-/* comando para crear un controlador en blanco */
-
 namespace App\Http\Controllers;
-use App\Entities\Tarea;
-use App\Repositories\TareasRepository;
 
 use Illuminate\Http\Request;
 
+// creado con el comando php artisan make::controller TareasController --resource
+// el anterior se renombro para trabajar en limpio
+
 class TareasController extends Controller
 {
-    public function __construct(TareasRepository $tareas) {
-        $this->tareas = $tareas;
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
     }
 
-    public function index() {
-        #pruebas
-        /*$tareas = Tarea::all();
-        var_dump($tareas);*/
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
-        //$tareas = Tarea::where('usuario_id', 1)->get();
-        $tareasPrioridad = $this->tareas->porPrioridad(1,3);
-        #$tareas = $this->tareas->porUsuario(1);
-        foreach ($tareasPrioridad as $tarea) {
-            //echo $tarea->titulo." ".$tarea->prioridad."<br />";
-            echo $tarea->titulo;
-            echo $tarea->prioridad['id'];
-            echo $tarea->prioridad['prioridad'];
-        }
-        
-        
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
     }
-    public function buscar() {
-        echo "Buscar en Tareas Controller";
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
-    public function ver($id, $limitar = null) {
-        echo "Id de la tarea".$id;
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
