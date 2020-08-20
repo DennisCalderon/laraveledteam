@@ -18,7 +18,28 @@ class TareasController extends Controller
      */
     public function index()
     {
-        $tareas = Tarea::all('-'); // modicamos: $tareas = Tarea::all(); y le agregamos el parámetro '-' para generar un error y verificar nuestra vista de error custom
+        //$tareas = Tarea::all('-'); // modicamos: $tareas = Tarea::all(); y le agregamos el parámetro '-' para generar un error y verificar nuestra vista de error custom
+        
+        // manejo de errores
+        try {
+            //$tareas = Tarea::all();
+            $tareas = Tarea::all('id_tarea'); // agregamos el parámetro de 'id_tarea' para generar un error
+        } catch (Exception $e) {
+            //echo "."; // para mostrar todo el error en el registro
+            
+            //tipos - se puede usar todos estos tipos de errores
+            Log::debug('Error en consulta'. $e->getMessage()); // para reemplazar el mensaje de error por un mensaje simple
+            Log::emergency('Error en consulta'. $e->getMessage()); 
+            Log::alert('Error en consulta'. $e->getMessage()); 
+            Log::critical('Error en consulta'. $e->getMessage()); 
+            Log::error('Error en consulta'. $e->getMessage()); 
+            Log::warning('Error en consulta'. $e->getMessage()); 
+            Log::notice('Error en consulta'. $e->getMessage()); 
+            Log::info('Error en consulta'. $e->getMessage()); 
+
+        }
+        
+        $tareas = Tarea::all(); 
         return view('tareas.index')->with(compact('tareas')); // la data tamien la podemos enviar con un arreglo -> $data['']
     }
 
