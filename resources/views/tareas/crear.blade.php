@@ -10,6 +10,7 @@
         <h1 class="mt-5">Mis Tareas</h1>
         <a href="{{ route('tareas.index') }}">Regresar</a>
         <section class="content">
+            <h4>Crear Tareas </h4>
             @include('tareas._form')
         </section>        
     </main>

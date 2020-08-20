@@ -8,7 +8,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Título:</label>
-                                <input type="text" class="form-control" id="titulo" name="titulo" required="required" value="">
+                                <input type="text" class="form-control" id="titulo" name="titulo" required="required" value="{{ $tarea->titulo }}">
                             </div>
                         </div>
                         <div class="col-4">
@@ -17,7 +17,7 @@
                                 <option value="0">Selecciona</option>
                                 @if(!empty($prioridades))
                                     @foreach ($prioridades as $p)
-                                        <option value="{{ $p->id }}">{{ $p->prioridad }}
+                                        <option value="{{$p->id}}" {{$p->id === $tarea->prioridad_id ? 'selected' : ''}}>{{$p->prioridad}} </option>
                                     @endforeach
                                 @endif
                             </select>
@@ -27,7 +27,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <span class="text-danger">*&nbsp;</span><label>Descripción</label>
-                                <textarea id="description" name="description" class="form-control"></textarea>
+                                <textarea id="description" name="description" class="form-control">{{ $tarea->description }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -36,6 +36,9 @@
                             <button type="submit" class="btn btn-primary btn-block">Guardar</button>
                         </div>
                     </div>
+                    @if (!empty($put)) {{-- cambio el método del formulario para llevar a cabo la acción de actulizar el formulario --}}
+                        <input type="hidden" name="_method" value="PUT">
+                    @endif
                 </div>
             </div>
         </div>
