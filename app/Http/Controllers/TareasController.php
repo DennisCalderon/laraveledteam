@@ -43,6 +43,9 @@ class TareasController extends Controller
      */
     public function store(Request $request)
     {
+        #Validación
+        list($rules, $messages) = $this->_rules();
+        $this->validate($request, $rules, $messages);
         
         #Opción 01 - guardar cada parámetro que resive desde el formulario
         $tarea = new Tarea(); // busca su tabla en MySQL y le agrega la "S" 
@@ -144,5 +147,24 @@ class TareasController extends Controller
         $tarea->delete(); // metodo para borrar
 
         return back(); // retroceder a la dirección web anterior
+    }
+
+    #Reglas de validación
+    private function _rules() {
+        $messages = [
+            'titulo.required' => 'El titulo es requerido', //nombre del campo y el atributo de "required"
+            'titulo.min' => 'Mínimo 5 caracteres', //nombre del campo y el atributo
+            'description.required' => 'Escribe una descripción para tu tarea', //nombre del campo y el atributo
+            'prioridad_id.not_in' => 'No puede ser 0',
+            'prioridad_id.required' => 'Selecciona una prioridad'
+        ]; // estas son las respuestas de error, este campo es opcional pero se recomienda crear 
+
+        $rules = [
+            'titulo' => 'required|min:5',
+            'description' => 'required',
+            'prioridad_id' => 'required|not_in:0'
+        ];
+
+        return array($rules, $messages); // una vez customizadas las respuestas a las reglas regrasmos todo como un arreglo
     }
 }

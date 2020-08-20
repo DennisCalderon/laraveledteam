@@ -1,3 +1,9 @@
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <p class="alert alert-danger">*{{ $error }}</p>
+    @endforeach
+@endif
+
 <form method="post" action="{{ $action }}" class="col-md-12 col12">
     <div class="row">
         {{ csrf_field() }}  {{-- sin está funciona no podemos guardar información ya que se encarga de la seguridad  --}}
