@@ -52,3 +52,8 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
 
 // GET, POST, PUT, DELETE, PATCH
 route::resource('tareas', 'TareasController');
+
+#Manejo de Errores
+Route::get('errores', function(){
+    abort(404); // típico error cuando no encontramos una página
+});

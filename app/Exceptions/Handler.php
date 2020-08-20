@@ -46,6 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception->getStatusCode() === 404) {  // modcapturamos el tipo de error y lo redirigimos a una de nuestras vistas
+            return response()->view('errores.404', ['error' => 'Error 404, lo siento :( '], 404);
+                                                // este arreglo nos permite mandar un mensaje de error, siempre que sea un arreglo asociativo
+        }
         return parent::render($request, $exception);
     }
 }
