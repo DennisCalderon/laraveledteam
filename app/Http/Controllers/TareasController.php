@@ -18,7 +18,7 @@ class TareasController extends Controller
      */
     public function index()
     {
-        $tareas = Tarea::all();
+        $tareas = Tarea::all('-'); // modicamos: $tareas = Tarea::all(); y le agregamos el parámetro '-' para generar un error y verificar nuestra vista de error custom
         return view('tareas.index')->with(compact('tareas')); // la data tamien la podemos enviar con un arreglo -> $data['']
     }
 
